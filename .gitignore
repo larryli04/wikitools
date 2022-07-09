@@ -1,5 +1,7 @@
-./build.py
-./dump.xml
-./index.txt
-./speed.py
-./testxml.py
+build.py
+dump.xml
+index.txt
+speed.py
+testxml.py
+
+__pycache__/
