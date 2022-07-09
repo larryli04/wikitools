@@ -16,3 +16,5 @@ TODO:
 - make sure loops are detected
 
 Date pages currently not supported because they rely on templates
+
+mromo provlem -> stuck in bracket loop

@@ -46,15 +46,22 @@ for _ in range(100000):
     pagetext = revision.findtext(f"{tag_thing}text")
     if(type(pagetext) == NoneType):
         pagetext = revision.findtext("text")
-    # print(type(pagetext))
-
-    text, redir = clean(pagetext)
+  
 
     title = page.find(f"{tag_thing}title") # get title text
     if(type(title) == NoneType):
         title = page.find("title")
-    
 
+    print(title.sourceline)
+    print(title.text)
+
+    if("Template:" in title.text):
+        print(f"{title.text} not supported")
+        firstlink[title.text] = None
+        continue
+
+
+    text, redir = clean(pagetext)
 
     if(redir == True):
 
@@ -63,10 +70,19 @@ for _ in range(100000):
     else:
         # find the first link
         try:
-            firstlink[title.text] = flink(text)
+            if(len(flink(text)) > 254):
+                print(f"{title.text} not working")
+                print("sourceline", title.sourceline)
+                print("attempted link:" ,flink(text))
+                print("first bit of text:", text[:100])
+                firstlink[title.text] = None
+            else:
+                # print(title.text)
+                # print(title.sourceline)
+                firstlink[title.text] = flink(text)
         except:
-            print(title.sourceline)
-            exit()
+            print(f"{title.text} not supported")
+            firstlink[title.text] = None
         # add to data structure
         pass
 
@@ -80,3 +96,4 @@ with open("wikilinks.json", "w") as outfile:
 
 
 # before you do the whole thing ,make sure to have the json readable
+# ignore parentheses
