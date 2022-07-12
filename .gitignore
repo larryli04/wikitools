@@ -3,5 +3,13 @@ dump.xml
 index.txt
 speed.py
 testxml.py
+save.graphml
+save_10000.graphml
+wikilinks_no_redirects.json
+wikilinks.json
+test_json.py
+wikilinks.json
 
 __pycache__/
+errors/
+errors.*

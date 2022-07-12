@@ -10,11 +10,10 @@ I do not know what these are nor what for. May use in the future
 
 start.py goes to the first page in a wikipedia article until it reaches philosophy.
 
-TODO:
-- map out wikipedia (dynamic programming)
-- convert to local accessing
-- make sure loops are detected
+newxml.py generates a json file with the links of the first page locally
 
-Date pages currently not supported because they rely on templates
+There are SO MANY problems with this code. Good luck.
 
-mromo provlem -> stuck in bracket loop
+newxml.py builds a json from the xml
+philosophy.py is an interactive script that looks for paths until you reach philosophy
+graph.py generates a graphml file from the json
